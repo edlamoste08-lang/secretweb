@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Babaaa 💖💋</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1c1c2e, #2b2640, #2e2a3c);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+  }
+
+  .float-emoji {
+    position: absolute;
+    font-size: 24px;
+    animation: floatAnim 8s linear infinite;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  @keyframes floatAnim {
+    0% { transform: translateY(0) scale(1); opacity:1; }
+    50% { opacity:0.7; }
+    100% { transform: translateY(-120vh) scale(1.3); opacity:0; }
+  }
+
+  .card {
+    background: rgba(30, 30, 50, 0.9);
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    width: 90%;
+    max-width: 450px;
+    min-width: 300px;
+    text-align: center;
+    z-index: 1;
+  }
+
+  img#gif {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ffd700;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    text-shadow: 1px 1px 5px #000;
+  }
+
+  button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 8px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px #000;
+  }
+
+  #yes {
+    background: linear-gradient(135deg, #ffd700, #ffda55);
+    color: #1c1c2e;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.6);
+  }
+  #yes:hover { transform: scale(1.05); }
+
+  #no {
+    background: #555;
+    color: #ddd;
+  }
+  #no:hover { transform: scale(1.03); }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <img id="gif" src="https://media.giphy.com/media/lNimfezUn8Yh2/giphy.gif" alt="cute begging dog">
+  <h1 id="question">Hey Babaaa 🥺👉👈 will you be my Valentine?</h1>
+  <div>
+    <button id="yes">Yes 💖💋</button>
+    <button id="no">No 🙄</button>
+  </div>
+</div>
+
+<script>
+const yesBtn = document.getElementById('yes');
+const noBtn = document.getElementById('no');
+const gif = document.getElementById('gif');
+const question = document.getElementById('question');
+
+/* Floating hearts & flowers */
+const emojis = ['❤️','💖','🌸','💋','💞','😘','💛','🌺','💐','🌹'];
+function floatEmoji() {
+  const e = document.createElement('div');
+  e.className = 'float-emoji';
+  e.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+  e.style.left = Math.random()*100 + 'vw';
+  e.style.fontSize = (20 + Math.random()*25) + 'px';
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(), 8000);
+}
+setInterval(floatEmoji, 200);
+
+/* No button persuasive sequence */
+const noMessages = [
+  "Are you suuuuure? 🥺",
+  "Babaaa, look at these puppy eyes… 😢",
+  "Pretty please? ❤️💋",
+  "One tiny yes? 😭",
+  "You’d make me soooo happy 🥰",
+  "Just LOOK at this doggo begging 🐶",
+  "I even got hearts floating for you 💞",
+  "If no, I’ll just keep asking 😏",
+  "Come on Babaaa… 😘",
+  "Last try… please? 💖💋"
+];
+const noGifs = [
+  "https://media.giphy.com/media/lNimfezUn8Yh2/giphy.gif",
+  "https://media.giphy.com/media/ytu2GUYbvhz7zShGwS/giphy.gif",
+  "https://media.giphy.com/media/zfNAMCrhSQzte/giphy.gif",
+  "https://media.giphy.com/media/FY8c5SKwiNf1EtZKGs/giphy.gif",
+  "https://media.giphy.com/media/efZeeUTH7aRdxZVjJW/giphy.gif",
+  "https://media.giphy.com/media/ZYEv0EmAncKu6gf6Ft/giphy.gif",
+  "https://media.giphy.com/media/jp2KXzsPtoKFG/giphy.gif",
+  "https://media.giphy.com/media/f6OdrLIcPTMUU/giphy.gif",
+  "https://media.giphy.com/media/zDeQTAYJQgLf0nszLs/giphy.gif",
+  "https://media.giphy.com/media/ONuQzM11fjvoY/giphy.gif",
+  "https://media.giphy.com/media/26gspipWnu59srmM0/giphy.gif",
+  "https://media.giphy.com/media/12mWfQYoxRqslq/giphy.gif",
+  "https://media.giphy.com/media/YZOsKxJfmvzG0/giphy.gif",
+  "https://media.giphy.com/media/f2HiQKaEkaKwo/giphy.gif"
+];
+
+let noClicks = 0;
+noBtn.addEventListener('click', () => {
+  if(noClicks < noMessages.length){
+    question.innerText = noMessages[noClicks];
+    gif.src = noGifs[noClicks % noGifs.length];
+    noClicks++;
+  } else {
+    question.innerText = "Okay… I guess 😢";
+    gif.src = "https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif";
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
+  }
+});
+
+/* Yes button 5-step confirmation */
+const yesSteps = [
+  "Did you really click yes? 😳💋",
+  "Are you suuuure, Babaaa? 😍💖",
+  "This is big… 😘",
+  "I can’t believe you 🥺💖",
+  "Final confirmation? 💞💋"
+];
+const yesGifs = [
+  "https://media.giphy.com/media/10hO3rDNqqg2Xe/giphy.gif",
+  "https://media.giphy.com/media/111ebonMs90YLu/giphy.gif",
+  "https://media.giphy.com/media/12mWfQYoxRqslq/giphy.gif",
+  "https://media.giphy.com/media/ONuQzM11fjvoY/giphy.gif",
+  "https://media.giphy.com/media/bpTL6wXRuMQpMIVduB/giphy.gif"
+];
+
+let yesClicks = 0;
+yesBtn.addEventListener('click', () => {
+  if(yesClicks < yesSteps.length){
+    question.innerText = yesSteps[yesClicks];
+    gif.src = yesGifs[yesClicks];
+    yesClicks++;
+  } else {
+    question.innerText = "Yayy Babaaa!! 🥰💖💋 Mwaaa 😘💞";
+    gif.src = "https://media.giphy.com/media/bpTL6wXRuMQpMIVduB/giphy.gif";
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>
